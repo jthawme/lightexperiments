@@ -1,0 +1,27 @@
+{
+  "name": "@light-experiments/app",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.17.7"
+  },
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "precommit": "lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": "eslint --max-warnings=2"
+  },
+  "dependencies": {
+    "@light-experiments/config": "^1.0.0",
+    "express": "^4.17.1",
+    "open": "^7.1.0"
+  }
+}
