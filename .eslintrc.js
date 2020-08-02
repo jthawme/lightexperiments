@@ -12,5 +12,6 @@ module.exports = {
   plugins: ["@typescript-eslint", "prettier"],
   rules: {
     "prettier/prettier": ["error"],
+    "require-jsdoc": "off",
   },
 };
