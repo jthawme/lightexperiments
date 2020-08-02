@@ -7,5 +7,8 @@
     "@light-experiments/config": "^1.0.0",
     "@serialport/parser-readline": "^9.0.0",
     "serialport": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/serialport": "^8.0.1"
   }
 }

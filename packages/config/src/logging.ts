@@ -24,7 +24,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 export const log = (
-  msg: string,
+  msg: string | Error,
   emitter: keyof typeof EMITTERS = "DEFAULT"
 ) => {
   if (emitter === "ERROR") {

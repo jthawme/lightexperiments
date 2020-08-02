@@ -1170,6 +1170,13 @@
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
 
+"@types/serialport@^8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@types/serialport/-/serialport-8.0.1.tgz#61dddbe74038149458edd62f9e4a323c52970f91"
+  integrity sha512-IcKHq6b/ynKSF/x4al/Ce8+a0hpbYIEaIcK9Z3l4koLvQqAPSODZ37/hgemQx8dTu7fPZDMHN4bKmu89B3UaGA==
+  dependencies:
+    "@types/node" "*"
+
 "@typescript-eslint/eslint-plugin@^3.7.1":
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-3.7.1.tgz#d144c49a9a0ffe8dd704bb179c243df76c111bc9"
