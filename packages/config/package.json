@@ -1,0 +1,18 @@
+{
+  "name": "@light-experiments/config",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "license": "MIT",
+  "scripts": {
+    "start": "tsc --watch",
+    "build": "tsc",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.ts": "eslint --max-warnings=2"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "winston": "^3.3.3"
+  }
+}
