@@ -1,0 +1,39 @@
+{
+  "name": "lightexperiments",
+  "private": true,
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "cross-env": "^7.0.2",
+    "husky": "^4.2.5",
+    "lerna": "^3.22.1",
+    "@typescript-eslint/eslint-plugin": "^3.7.1",
+    "@typescript-eslint/parser": "^3.7.1",
+    "eslint": "^7.6.0",
+    "eslint-config-google": "^0.14.0"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Jonny Thaw <hi@jthaw.me>",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "**/*": [
+      "eslint --max-warnings=2",
+      "prettier --check"
+    ]
+  }
+}
