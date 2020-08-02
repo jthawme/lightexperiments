@@ -4,13 +4,19 @@
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
-    "cross-env": "^7.0.2",
-    "husky": "^4.2.5",
-    "lerna": "^3.22.1",
     "@typescript-eslint/eslint-plugin": "^3.7.1",
     "@typescript-eslint/parser": "^3.7.1",
+    "cross-env": "^7.0.2",
     "eslint": "^7.6.0",
-    "eslint-config-google": "^0.14.0"
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
+    "lerna": "^3.22.1",
+    "prettier": "^2.0.5"
+  },
+  "scripts": {
+    "start": "lerna run --parallel --stream start"
   },
   "version": "1.0.0",
   "main": "index.js",
@@ -22,7 +28,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
+      "pre-commit": "lerna run --concurrency 1 --stream precommit --since HEAD --exclude-dependents"
     }
   },
   "commitlint": {
@@ -31,7 +37,7 @@
     ]
   },
   "lint-staged": {
-    "**/*": [
+    "*.ts": [
       "eslint --max-warnings=2",
       "prettier --check"
     ]
