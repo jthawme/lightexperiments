@@ -10,6 +10,8 @@ function filterOptions(name?: string, input?: boolean): string | undefined {
   return name ? devices.find((i) => i === name) : devices[0];
 }
 
+export type MidiInput = easymidi.Input;
+
 export const getInput = (name?: string): Promise<easymidi.Input> => {
   return new Promise((resolve, reject) => {
     const input = filterOptions(name, true);

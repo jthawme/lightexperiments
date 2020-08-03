@@ -22,9 +22,12 @@
   },
   "dependencies": {
     "@light-experiments/config": "^1.0.0",
+    "@light-experiments/midi": "^1.0.0",
+    "@types/usb": "^1.5.1",
     "express": "^4.17.1",
     "open": "^7.1.0",
     "socket.io": "^2.3.0",
-    "ts-node-dev": "^1.0.0-pre.56"
+    "ts-node-dev": "^1.0.0-pre.56",
+    "usb": "^1.6.3"
   }
 }

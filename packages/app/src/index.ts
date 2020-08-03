@@ -1,27 +1,16 @@
 import express from "express";
-import http from "http";
-import open from "open";
-import socketIO from "socket.io";
 import { log } from "@light-experiments/config";
 
-const app = express();
-const server = http.createServer(app);
-const io = socketIO(server);
-const port = 8080;
+import { app, server, port } from "./config";
+import { runConnect } from "./devices";
+
+app.use(express.static(__dirname + "/public"));
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
-
-io.on("connection", (socket) => {
-  log("a user connected");
-
-  socket.on("message", (msg) => {
-    log("msg: " + msg);
-  });
+  res.sendFile(__dirname + "/public/index.html");
 });
 
 server.listen(port, () => {
   log("Server up and running");
-  open(`http://localhost:${port}`);
+  runConnect();
 });
