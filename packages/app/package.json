@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.ts",
   "license": "MIT",
-  "devDependencies": {
-    "@types/express": "^4.17.7",
-    "@types/socket.io": "^2.1.10"
-  },
+  "devDependencies": {},
   "scripts": {
     "start": "ts-node src/index.ts",
     "start:dev": "ts-node-dev src/index.ts",
@@ -23,13 +20,12 @@
   },
   "dependencies": {
     "@light-experiments/config": "^1.0.0",
+    "@light-experiments/frontend": "^1.0.0",
+    "@light-experiments/hardware": "^1.0.0",
     "@light-experiments/midi": "^1.0.0",
     "@light-experiments/utils": "^1.0.0",
-    "@light-experiments/hardware": "^1.0.0",
     "@types/usb": "^1.5.1",
-    "express": "^4.17.1",
     "open": "^7.1.0",
-    "socket.io": "^2.3.0",
     "ts-node-dev": "^1.0.0-pre.56",
     "usb": "^1.6.3"
   }

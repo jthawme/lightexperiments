@@ -2,15 +2,15 @@ import usb from "usb";
 import { getInput, MidiInput } from "@light-experiments/midi";
 import { connectBoard, BoardOutput } from "@light-experiments/hardware";
 import { log } from "@light-experiments/config";
-import { emitInfo } from "./messaging";
 
 interface DevicesObject {
   midi: null | MidiInput;
   board: null | BoardOutput;
 }
 
-interface EventsObject {
-  onDevices: ((devices: DevicesObject) => void) | null;
+interface ConnectObject {
+  devices: DevicesObject;
+  getDevices: () => DevicesObject;
 }
 
 const devices: DevicesObject = {
@@ -51,22 +51,14 @@ function connectionStatus(devices: DevicesObject) {
   });
 }
 
-const events: EventsObject = {
-  onDevices: null,
-};
-
-export function onDevices(cb: (devices: DevicesObject) => void): void {
-  events.onDevices = cb;
-}
-
-export function runConnect(): void {
-  connectDevices().then((devices) => {
+export function runConnect(): Promise<ConnectObject> {
+  return connectDevices().then((devices) => {
     connectionStatus(devices);
-    emitInfo();
 
-    if (events.onDevices) {
-      events.onDevices(devices);
-    }
+    return {
+      devices,
+      getDevices,
+    };
   });
 }
 
