@@ -1,12 +1,17 @@
 import { Board, Led } from "johnny-five";
 
-const board = new Board();
+export const connectBoard = (): Promise<Board> => {
+  const board = new Board({
+    repl: false,
+  });
+  return new Promise((resolve) => {
+    board.on("ready", () => {
+      resolve(board);
+    });
+  });
+};
 
-board.on("ready", () => {
-  // Create a standard `led` component instance
-  const led = new Led(13);
+export * as BlinkTest from "./interactions/blinkTest";
+export { Led };
 
-  // "blink" the led in 500ms
-  // on-off phase periods
-  led.blink(500);
-});
+export type BoardOutput = Board;

@@ -1227,6 +1227,13 @@
   resolved "https://registry.yarnpkg.com/@types/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#1ee30d79544ca84d68d4b3cdb0af4f205663dd2d"
   integrity sha512-OCutwjDZ4aFS6PB1UZ988C4YgwlBHJd6wCeQqaLdmadZ/7e+w79+hbMUFC1QXDNCmdyoRfAFdm0RypzwR+Qpag==
 
+"@types/exit-hook@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@types/exit-hook/-/exit-hook-2.2.1.tgz#67c4fa2e2405215fec98e9cbe8cdae390b1ecfb0"
+  integrity sha512-TTd69qAddfZG5eK9FJgH2ykZLSHZaalBVM50rJX4/9repA8hv7LRqvwi/TOb2aCASYMKxGvDpX1QYEc3J2aFmQ==
+  dependencies:
+    exit-hook "*"
+
 "@types/express-serve-static-core@*":
   version "4.17.9"
   resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-4.17.9.tgz#2d7b34dcfd25ec663c25c85d76608f8b249667f1"
@@ -3086,6 +3093,11 @@ execa@^4.0.1:
     onetime "^5.1.0"
     signal-exit "^3.0.2"
     strip-final-newline "^2.0.0"
+
+exit-hook@*, exit-hook@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/exit-hook/-/exit-hook-2.2.0.tgz#f5502f92179018e867f2d8ee4428392da7f3894e"
+  integrity sha512-YFH+2oGdldRH5GqGpnaiKbBxWHMmuXHmKTMtUC58kWSOrnTf95rKITVSFTTtas14DWvWpih429+ffAvFetPwNA==
 
 expand-brackets@^2.1.4:
   version "2.1.4"

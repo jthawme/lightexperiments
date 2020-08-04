@@ -1,29 +1,9 @@
 import { spawn, PromisifySpawnOptions } from "promisify-child-process";
-import SerialPort from "serialport";
+import { getArduinoPort } from "../src/common";
 
 const FBQN = "arduino:avr:uno";
 const SKETCH = `${__dirname}/firmware.ino`;
 const ARDUINO = "/usr/local/bin/arduino-cli";
-
-export const getArduinoPort = (): Promise<SerialPort.PortInfo> => {
-  return new Promise((resolve, reject) => {
-    SerialPort.list()
-      .then((ports) => {
-        const port = ports.find((p) => {
-          return (
-            p.manufacturer && p.manufacturer.toLowerCase().includes("arduino")
-          );
-        });
-
-        if (port) {
-          resolve(port);
-        } else {
-          reject(new Error("No arduino connected"));
-        }
-      })
-      .catch((err) => reject(err));
-  });
-};
 
 const spawnWithProgress = (
   cmd: string,

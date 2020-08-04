@@ -4,8 +4,7 @@
   "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node src/index.ts",
-    "start:dev": "ts-node-dev src/index.ts",
+    "start:test": "ts-node-dev src/test.ts",
     "build": "tsc",
     "precommit": "lint-staged",
     "upload": "ts-node ./firmware/upload.ts"
@@ -14,6 +13,7 @@
     "*.ts": "eslint --max-warnings=2"
   },
   "dependencies": {
+    "exit-hook": "^2.2.0",
     "johnny-five": "^2.0.0",
     "promisify-child-process": "^4.1.1",
     "ts-node": "^8.10.2",
@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@types/cli-progress": "^3.7.0",
+    "@types/exit-hook": "^2.2.1",
     "@types/johnny-five": "^1.3.0",
     "@types/node": "^14.0.27",
     "@types/serialport": "^8.0.1",

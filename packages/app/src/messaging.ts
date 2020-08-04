@@ -5,6 +5,7 @@ import { getDevices } from "./devices";
 export const emitInfo = (): void => {
   io.emit("devices", {
     midi: getDevices().midi?.name || "Not connected",
+    board: getDevices().board?.port || "Not connected",
   });
 };
 

@@ -1,10 +1,12 @@
 import usb from "usb";
 import { getInput, MidiInput } from "@light-experiments/midi";
+import { connectBoard, BoardOutput } from "@light-experiments/hardware";
 import { log } from "@light-experiments/config";
 import { emitInfo } from "./messaging";
 
 interface DevicesObject {
   midi: null | MidiInput;
+  board: null | BoardOutput;
 }
 
 interface EventsObject {
@@ -13,6 +15,7 @@ interface EventsObject {
 
 const devices: DevicesObject = {
   midi: null,
+  board: null,
 };
 
 /**
@@ -25,6 +28,13 @@ export async function connectDevices(): Promise<DevicesObject> {
   } catch (e) {
     devices.midi = null;
     log("No midi input, swallowing");
+  }
+
+  try {
+    devices.board = await connectBoard();
+  } catch (e) {
+    devices.board = null;
+    log("No board, swallowing");
   }
 
   return devices;
