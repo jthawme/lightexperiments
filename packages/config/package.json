@@ -4,7 +4,6 @@
   "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
-    "start": "tsc --watch",
     "build": "tsc",
     "precommit": "lint-staged"
   },
