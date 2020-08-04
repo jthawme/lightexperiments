@@ -7,6 +7,10 @@ interface DevicesObject {
   midi: null | MidiInput;
 }
 
+interface EventsObject {
+  onDevices: ((devices: DevicesObject) => void) | null;
+}
+
 const devices: DevicesObject = {
   midi: null,
 };
@@ -37,10 +41,22 @@ function connectionStatus(devices: DevicesObject) {
   });
 }
 
+const events: EventsObject = {
+  onDevices: null,
+};
+
+export function onDevices(cb: (devices: DevicesObject) => void): void {
+  events.onDevices = cb;
+}
+
 export function runConnect(): void {
   connectDevices().then((devices) => {
     connectionStatus(devices);
     emitInfo();
+
+    if (events.onDevices) {
+      events.onDevices(devices);
+    }
   });
 }
 

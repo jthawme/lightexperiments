@@ -8,6 +8,10 @@ export const emitInfo = (): void => {
   });
 };
 
+export const genericMessage = (msg: string): void => {
+  io.emit("generic", msg);
+};
+
 io.on("connection", (socket) => {
   emitInfo();
 

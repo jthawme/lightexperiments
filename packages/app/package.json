@@ -23,6 +23,7 @@
   "dependencies": {
     "@light-experiments/config": "^1.0.0",
     "@light-experiments/midi": "^1.0.0",
+    "@light-experiments/utils": "^1.0.0",
     "@types/usb": "^1.5.1",
     "express": "^4.17.1",
     "open": "^7.1.0",

@@ -1,7 +1,8 @@
 import easymidi from "easymidi";
 
 interface InputEventsDictionary {
-  [key: string]: (options: easymidi.Note) => void;
+  noteon: (options: easymidi.Note) => void;
+  noteoff: (options: easymidi.Note) => void;
 }
 
 function filterOptions(name?: string, input?: boolean): string | undefined {
@@ -11,6 +12,7 @@ function filterOptions(name?: string, input?: boolean): string | undefined {
 }
 
 export type MidiInput = easymidi.Input;
+export type Note = easymidi.Note;
 
 export const getInput = (name?: string): Promise<easymidi.Input> => {
   return new Promise((resolve, reject) => {
@@ -45,6 +47,7 @@ export const setMidiListeners = (
   evts: InputEventsDictionary
 ): void => {
   Object.keys(evts).forEach((evt) => {
-    input.on(evt as "noteon" | "noteoff", evts[evt]);
+    const safeEvt = evt as "noteon" | "noteoff";
+    input.on(safeEvt, evts[safeEvt]);
   });
 };

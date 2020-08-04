@@ -1,0 +1,17 @@
+{
+  "name": "@light-experiments/utils",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "license": "MIT",
+  "scripts": {
+    "start": "tsc --watch",
+    "build": "tsc",
+    "precommit": "lint-staged"
+  },
+  "dependencies": {
+    "typescript": "^3.9.7"
+  },
+  "lint-staged": {
+    "*.ts": "eslint --max-warnings=2"
+  }
+}
