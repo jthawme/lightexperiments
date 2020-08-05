@@ -16,15 +16,18 @@ Promise.all([startServer(), runConnect()]).then(([Server, Devices]) => {
     });
   };
 
-  // Register listener for any message from front end
-  Server.on("message", (data) => {
-    log(`Message from front end: ${data.toString()}`);
-
-    Server.send("generic", "Read ya bud");
-  });
-
   // Register listener to any connection to front end
-  Server.on("connection", () => {
+  Server.on("connection", (socket) => {
+    socket.on("message", (data: any) => {
+      log(`Message from front end: ${data.toString()}`);
+
+      Server.send("generic", "Read ya bud");
+    });
+
+    socket.on("command", (cmd: string) => {
+      log(`Received '${cmd}' command`);
+    });
+
     sendDevices();
   });
 });

@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type EventData = any;
 export type EventCallback = (data: EventData) => void;
-export type MessageTypes = "message" | "connection";
+export type MessageTypes = "message" | "connection" | "command";
 
 export interface ServerObject {
   url: string;

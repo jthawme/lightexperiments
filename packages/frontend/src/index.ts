@@ -32,7 +32,7 @@ const off: ServerObject["off"] = (evt, cb) => {
 };
 
 const registerListeners = () => {
-  ["message", "connection"].forEach((evtKey) => {
+  ["message", "connection", "command"].forEach((evtKey) => {
     io.removeAllListeners(evtKey);
     io.on(evtKey, (data: EventData) => {
       if (events[evtKey]) {

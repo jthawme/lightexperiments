@@ -1,4 +1,7 @@
 /* global io, document */
+
+const socket = io();
+
 function addMessage(msg) {
   const messages = document.querySelector(".messages");
 
@@ -23,7 +26,9 @@ function updateDevices(data) {
   });
 }
 
-const socket = io();
+function sendCommand(command) {
+  socket.emit("command", command);
+}
 
 socket.on("server", ({ eventType, data }) => {
   switch (eventType) {
@@ -34,4 +39,12 @@ socket.on("server", ({ eventType, data }) => {
       updateDevices(data);
       break;
   }
+});
+
+document.getElementById("move").addEventListener("click", () => {
+  sendCommand("move");
+});
+
+document.getElementById("direction").addEventListener("click", () => {
+  sendCommand("direction");
 });
