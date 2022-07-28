@@ -55,6 +55,7 @@ export function runConnect(): Promise<ConnectObject> {
   return connectDevices().then((devices) => {
     connectionStatus(devices);
 
+    // need to have callback for connected devices
     return {
       devices,
       getDevices,
